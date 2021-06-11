@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/python3
 """ compressing fabric"""
 from fabric.api import *
 from datetime import datetime
