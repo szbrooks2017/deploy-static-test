@@ -11,7 +11,7 @@ sudo mkdir -p /data/web_static/shared
 
 sudo echo "Pokemon" | sudo tee /data/web_static/releases/test/index.html
 sudo ln -sn /data/web_static/releases/test/ /data/web_static/current
-sudo chown -hR ubunut:ubuntu /data/
+sudo chown -hR ubuntu:ubuntu /data/
 find="^\tlocation / {"
 replace="\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n\n\tlocation / {"
 sudo sed -i "s@${find}@${replace}@" /etc/nginx/sites-available/default
