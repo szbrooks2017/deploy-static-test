@@ -14,10 +14,14 @@ def do_deploy(archive_path):
         archiveName = archive_path[9:]
         archiveNameWithoutExtention = archiveName[:-4]
         put(archive_path, '/tmp/' + archiveName)
-        run("tar -xzvf /tmp/" + archiveName + " -C " + "/data/web_static/releases/" + archiveNameWithoutExtention + " --strip-components=1")
+        run("mkdir -p /data/web_static/release/" + archiveNameWithoutExtension)
+        run("tar -xzvf /tmp/" + archiveName +
+            " -C " + "/data/web_static/releases/" +
+            archiveNameWithoutExtention + " --strip-components=1")
         run("rm -f /tmp/" + archiveName)
         run("rm -f /data/web_static/current")
-        run("ln -sf /data/web_static/releases/" + archiveNameWithoutExtention + " /data/web_static/current")
+        run("sudo ln -sf /data/web_static/releases/" +
+            archiveNameWithoutExtention + " /data/web_static/current")
         return True
     except:
         return False
