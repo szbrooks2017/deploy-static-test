@@ -7,6 +7,7 @@ import os.path
 env.hosts = ['35.231.1.112', '54.167.91.234']
 
 def do_deploy(archive_path):
+    """ documenting do deploy"""
     if not os.path.exists(archive_path):
         return False
     try:
@@ -22,6 +23,7 @@ def do_deploy(archive_path):
         return False
 
 def do_pack():
+    """ do pack"""
     try:
         now = datetime.now()
         tarArchiveName = "web_static_" + now.strftime("%Y%m%d%H%M%S") + ".tgz"
